@@ -1,0 +1,20 @@
+{
+  "name": "mgcc",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Machine Gun Command Center - operating platform for Machine Gun Spray Foam & Concrete Lifting LLC.",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "pnpm --filter @mgcc/web dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
