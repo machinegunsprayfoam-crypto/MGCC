@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "thedriveai": {
+      "type": "http",
+      "url": "https://thedriveai.fastmcp.app/mcp"
+    }
+  }
+}
