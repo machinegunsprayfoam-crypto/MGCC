@@ -84,6 +84,39 @@ deferAll("google-calendar-mcp", ["search_events"]);
 enableAllTools("google-calendar-mcp");
 ```
 
+### Connecting a tunneled (private-network) MCP server
+
+[MCP tunnels](https://docs.anthropic.com/en/docs/agents-and-tools/mcp-tunnels/overview)
+let Claude reach an MCP server inside your private network. Traffic uses the
+exact connector format above — the only tunnel-specific value is the `url`
+(`https://<subdomain>.<tunnel-domain><path>`). `tunnelServer` builds that
+`McpServerDefinition` for you:
+
+```ts
+import { tunnelServer } from "@mgcc/mcp-connector";
+
+const server = tunnelServer({
+  subdomain: "echo", // the proxy routes this subdomain to one upstream MCP server
+  tunnelDomain: "my-team.tunnel.anthropic.com",
+  // path defaults to "/mcp" (FastMCP streamable-http); override per your server
+  // authorization_token: "…", // the tunnel does NOT auth to the upstream server
+});
+// { type: "url", url: "https://echo.my-team.tunnel.anthropic.com/mcp", name: "echo" }
+
+await client.createMessage({
+  model: "claude-opus-4-8",
+  max_tokens: 1000,
+  messages: [{ role: "user", content: "Use the hello tool to greet tunnel." }],
+  bindings: [{ server }],
+});
+```
+
+Use `tunnelUrl(...)` if you only need the URL string. Both throw
+`McpConfigError` for an empty/multi-label subdomain or a tunnel domain that
+carries a scheme-less path. The tunnel carries encrypted traffic but does not
+authenticate to the upstream server — pass `authorization_token` if the server
+requires its own OAuth/bearer auth, exactly as for any other remote server.
+
 ### Reading the response
 
 ```ts

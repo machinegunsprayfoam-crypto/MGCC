@@ -48,3 +48,10 @@ export {
   McpConnectorClient,
   type McpConnectorClientOptions,
 } from "./client.js";
+
+export {
+  tunnelServer,
+  tunnelUrl,
+  type TunnelServerParams,
+  type TunnelUrlParams,
+} from "./tunnel.js";
