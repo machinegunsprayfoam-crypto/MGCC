@@ -21,3 +21,9 @@ npm-debug.log*
 .DS_Store
 .idea/
 .vscode/
+
+# Google Apps Script (clasp) — local config + generated deploy bundle
+app/.clasp.json
+app/*.gs
+app/*.html
+app/appsscript.json

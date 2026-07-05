@@ -1,0 +1,8 @@
+# clasp push uploads everything in rootDir except what is ignored here.
+# Ignore all, then allow only the deployable Apps Script artifacts that the
+# build step (tools/deploy/build_gs_bundle.js) generates into this directory.
+**/**
+
+!appsscript.json
+!*.gs
+!*.html
