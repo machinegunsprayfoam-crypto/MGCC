@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+      "@mgcc/grants": ["../grants/src/index.ts"],
+      "@mgcc/mcp-connector": ["../mcp-connector/src/index.ts"],
+      "@mgcc/anthropic-backends": ["../anthropic-backends/src/index.ts"],
+      "@mgcc/shared": ["../shared/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

@@ -15,6 +15,9 @@ packages/
   programmatic-tools/   @mgcc/programmatic-tools — programmatic tool calling
   vision/               @mgcc/vision — image token cost / resize / coordinate rescale
   anthropic-backends/   @mgcc/anthropic-backends — Claude backend registry + capability matrix
+  grants/               @mgcc/grants — grant finder / getter / AI writer (Granted-backed)
+  ai-command-center/    @mgcc/ai-command-center — integration layer; wires the above into
+                        console services (GrantsService: find → get → draft)
 docs/
   mcp-tunnels-setup.md          operator runbook (Console + Helm + Docker Compose)
   agent-skills-governance.md    Skills authoring + governance reference
@@ -60,6 +63,13 @@ wire up web before relying on the root scripts.
   test pins the documented `resizedSize(1075,1520) → 924×1307` example.
 - New package quickstart: copy `tsconfig.json` + `tsconfig.build.json` from an
   existing package; give it `package.json` scripts build/typecheck/test.
+- **Cross-package deps** (a package importing another `@mgcc/*`, e.g.
+  `ai-command-center`): resolve to *source* for typecheck/test so no pre-build is
+  needed — add tsconfig `paths` (`@mgcc/x` → `../x/src/index.ts`, drop `rootDir`
+  from the typecheck config) and matching `vitest.config.ts` `resolve.alias`.
+  The build config re-adds `rootDir: src` and clears `paths` (`"paths": {}`) so
+  emit resolves deps via their `dist`; run `pnpm -r build` (topological — deps
+  build first). Consuming packages remain green in `pnpm -r test` with no build.
 
 ## Git workflow
 

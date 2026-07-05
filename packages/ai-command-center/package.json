@@ -1,0 +1,38 @@
+{
+  "name": "@mgcc/ai-command-center",
+  "version": "0.0.1",
+  "private": true,
+  "description": "AI Command Center — wires the @mgcc Claude packages into console services (starting with grants: find → get → draft).",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@mgcc/anthropic-backends": "workspace:*",
+    "@mgcc/grants": "workspace:*",
+    "@mgcc/mcp-connector": "workspace:*",
+    "@mgcc/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

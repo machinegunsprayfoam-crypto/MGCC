@@ -70,6 +70,28 @@ importers:
         specifier: ^3.0.5
         version: 3.2.6(@types/node@22.20.0)(jiti@1.21.7)
 
+  packages/ai-command-center:
+    dependencies:
+      '@mgcc/anthropic-backends':
+        specifier: workspace:*
+        version: link:../anthropic-backends
+      '@mgcc/grants':
+        specifier: workspace:*
+        version: link:../grants
+      '@mgcc/mcp-connector':
+        specifier: workspace:*
+        version: link:../mcp-connector
+      '@mgcc/shared':
+        specifier: workspace:*
+        version: link:../shared
+    devDependencies:
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.0.5
+        version: 3.2.6(@types/node@22.20.0)(jiti@1.21.7)
+
   packages/anthropic-backends:
     devDependencies:
       typescript:
