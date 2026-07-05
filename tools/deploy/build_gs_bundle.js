@@ -28,8 +28,11 @@ const MANIFEST = {
   exceptionLogging: "STACKDRIVER",
   runtimeVersion: "V8",
   webapp: {
+    // Runs with the deploying owner's authority; team members access as
+    // themselves. Restricted to the owner's Google Workspace domain — only
+    // signed-in users in that domain can open the app.
     executeAs: "USER_DEPLOYING",
-    access: "ANYONE_ANONYMOUS",
+    access: "DOMAIN",
   },
 };
 

@@ -86,9 +86,16 @@ Then open the project in the browser to confirm the access settings
 (**Deploy ▸ Manage deployments ▸ Web app**):
 
 - **Execute as:** Me (`USER_DEPLOYING`) — set in `appsscript.json`.
-- **Who has access:** Anyone (`ANYONE_ANONYMOUS`) — tighten to "Only myself"
-  or your Workspace domain by editing `webapp.access` in
-  `tools/deploy/build_gs_bundle.js` and rebuilding.
+- **Who has access:** Your Google Workspace domain (`DOMAIN`) — only signed-in
+  users in the owner's Workspace domain can open the app. Change `webapp.access`
+  in `tools/deploy/build_gs_bundle.js` and rebuild to widen (`ANYONE`) or
+  narrow (`MYSELF`).
+
+> **Requires a Workspace domain.** `DOMAIN` access only works when the Apps
+> Script project is owned by a Google Workspace account (not a personal
+> @gmail.com). The project owner and every team member must be in the same
+> domain. If clasp reports the manifest is invalid, confirm you ran
+> `clasp login` / `clasp create` under your Workspace account.
 
 ## 5. Redeploy after changes
 
