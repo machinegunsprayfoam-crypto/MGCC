@@ -5,10 +5,8 @@
   "description": "Machine Gun Command Center - operating platform for Machine Gun Spray Foam & Concrete Lifting LLC.",
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "dev": "pnpm --filter @mgcc/web dev",
-    "build": "pnpm -r build",
     "build:gs": "node tools/deploy/build_gs_bundle.js",
-    "lint": "pnpm -r lint",
+    "deploy": "pnpm build:gs && cd app && clasp push && clasp deploy",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test"
   },
