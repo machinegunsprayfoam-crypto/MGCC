@@ -1,0 +1,32 @@
+{
+  "name": "@mgcc/mcp-connector",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Typed helper for Anthropic's MCP connector — builds mcp_servers + mcp_toolset payloads and calls the Messages API.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
