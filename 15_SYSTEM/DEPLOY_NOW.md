@@ -109,5 +109,5 @@ URL doubles as a JSON API:
 
 - `deploy/Code.gs` mirrors the module registry in
   `packages/shared/src/modules.ts`. Update both when modules change.
-- Edit `timeZone` in `tools/deploy/build_gs_bundle.js` if the business is not
-  in `America/New_York`.
+- `timeZone` is set to `America/Denver` (Mountain Time) in
+  `tools/deploy/build_gs_bundle.js`; change it there if the business relocates.

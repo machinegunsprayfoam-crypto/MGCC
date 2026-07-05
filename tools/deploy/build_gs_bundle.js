@@ -23,7 +23,7 @@ const OUT = path.join(ROOT, "app");
 
 /** Apps Script manifest for a Web app deployment. Edit timeZone as needed. */
 const MANIFEST = {
-  timeZone: "America/New_York",
+  timeZone: "America/Denver",
   dependencies: {},
   exceptionLogging: "STACKDRIVER",
   runtimeVersion: "V8",
